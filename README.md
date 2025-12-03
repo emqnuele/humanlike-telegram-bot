@@ -47,8 +47,8 @@ The bot is built with **Python**, **python-telegram-bot**, and **Google GenAI**.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/emqnuele/humanlike-telegram-bot.git
+    cd humanlike-telegram-bot
     ```
 
 2.  **Install dependencies:**
