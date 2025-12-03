@@ -1,0 +1,4 @@
+python-telegram-bot
+flask
+google-genai
+python-dotenv
