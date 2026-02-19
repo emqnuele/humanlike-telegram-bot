@@ -27,7 +27,7 @@ It doesn't just blast messages instantly. The bot calculates a "typing delay" ba
 - **Visual Feedback**: It displays the "typing..." status in Telegram while it "types" the message.
 - **Random Variance**: Adds a slight random factor to the delay so it never feels robotic or perfectly consistent.
 
-## 🚀 How It Works
+## How It Works
 
 The bot is built with **Python**, **python-telegram-bot**, and **Google GenAI**.
 
@@ -43,7 +43,7 @@ The bot is built with **Python**, **python-telegram-bot**, and **Google GenAI**.
         - Waits for the calculated delay.
         - Sends the message.
 
-## 🛠️ Installation
+## Installation
 
 1.  **Clone the repository:**
     ```bash
@@ -65,7 +65,7 @@ The bot is built with **Python**, **python-telegram-bot**, and **Google GenAI**.
       GOOGLE_MODEL_NAME=gemini-2.0-flash # Optional, defaults to gemini-2.0-flash
       ```
 
-## ⚙️ Configuration
+## Configuration
 
 ### System Prompt (`data/system_prompt.txt`)
 This is the brain of the bot. You can define its personality, tone, and behavior here.
@@ -76,7 +76,7 @@ This is the brain of the bot. You can define its personality, tone, and behavior
 ### History
 Chat histories are automatically saved in `data/histories/` as JSON files, ensuring the bot remembers context across conversations.
 
-## 🖥️ Usage
+## Usage
 
 Run the bot with:
 
@@ -86,7 +86,7 @@ python main.py
 
 The bot will start polling for Telegram messages. It also starts a lightweight Flask server on port 5000 (useful for keeping the bot alive on some hosting platforms).
 
-## 👨‍💻 Author
+## Author
 
 Created by **Emanuele Faraci**.
 
