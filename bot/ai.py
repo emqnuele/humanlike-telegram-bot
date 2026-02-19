@@ -13,7 +13,6 @@ HISTORY_DIR = "data/histories"
 
 def load_system_prompt():
     try:
-        # Priority to the text file which contains the detailed persona
         if os.path.exists("data/system_prompt.txt"):
             with open("data/system_prompt.txt", "r", encoding="utf-8") as f:
                 return f.read()
@@ -46,16 +45,7 @@ def save_history(chat_id, history):
 def generate_response(chat_id, user_message):
     system_instruction = load_system_prompt()
     history = load_history(chat_id)
-    
-    # Add user message to history for context (Gemini client handles history differently, 
-    # but for this specific request we need to manage it manually as per requirements)
-    
-    # Construct the contents for the API call
-    # We need to convert our stored history format to what the API expects if we were passing it directly,
-    # OR we can just use the chat session feature of the SDK if we want, but the user asked for specific JSON history management.
-    # The user example showed `client.models.generate_content`.
-    # To maintain history context in a single call, we usually pass the full conversation.
-    
+        
     contents = []
     for entry in history:
         contents.append(types.Content(
@@ -63,7 +53,6 @@ def generate_response(chat_id, user_message):
             parts=[types.Part.from_text(text=p) for p in entry["parts"]]
         ))
     
-    # Add the new user message
     contents.append(types.Content(
         role="user",
         parts=[types.Part.from_text(text=user_message)]
@@ -79,8 +68,7 @@ def generate_response(chat_id, user_message):
         )
         
         bot_response = response.text
-        
-        # Update history
+
         history.append({"role": "user", "parts": [user_message]})
         history.append({"role": "model", "parts": [bot_response]})
         save_history(chat_id, history)
